@@ -68,6 +68,9 @@ void AP_OpticalFlow_PX4::update(void)
         struct OpticalFlow::OpticalFlow_state state;
         state.device_id = report.sensor_id;
         state.surface_quality = report.quality;
+        state.rec_qual = report.rec_qual;
+        state.pat_x_dist = report.pat_x_dist;
+        state.pat_y_dist = report.pat_y_dist;
         if (report.integration_timespan > 0) {
             float yawAngleRad = _yawAngleRad();
             float cosYaw = cosf(yawAngleRad);

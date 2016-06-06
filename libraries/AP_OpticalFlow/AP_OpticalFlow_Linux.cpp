@@ -23,6 +23,11 @@
  *       Address range 0x42 - 0x49
  */
 
+/*
+ * Somehow misleading cause following code doesnt affect a connected PX4Flow Sensor
+ * Everything affecting a PX4Flow Sensor is stored in The AP_OpticalFlow_PX4.* Files and in the directory modules/PX4Firmware/src/drivers/px4flow
+ */
+
 #include <utility>
 
 #include <AP_HAL/AP_HAL.h>

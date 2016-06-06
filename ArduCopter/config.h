@@ -666,3 +666,9 @@
 #ifndef FRSKY_TELEM_ENABLED
   #  define FRSKY_TELEM_ENABLED          ENABLED
 #endif
+
+//////////////////////////////////////////////////////////////////////////////
+// Landing with pattern recognition
+#ifndef PATREC_LANDING
+ # define PATREC_LANDING ENABLED
+#endif

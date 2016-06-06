@@ -108,6 +108,8 @@
 #include <AC_PrecLand/AC_PrecLand.h>
 #include <AP_IRLock/AP_IRLock.h>
 #endif
+#if PATREC_LANDING == ENABLED
+//#include hier muss noch meine PATREC_LANDING Library included werden
 
 // Local modules
 #include "Parameters.h"

@@ -60,6 +60,11 @@ public:
     // last_update() - returns system time of last sensor update
     uint32_t last_update() const { return _last_update_ms; }
 
+    //newly added for pattern rec functionality
+    uint8_t rec_quality() const { return _state.rec_qual; }
+    float pat_x_dist() const { return _state.pat_x_dist; }
+    float pat_y_dist() const { return _state.pat_y_dist; }
+
     // parameter var info table
     static const struct AP_Param::GroupInfo var_info[];
 
@@ -68,6 +73,10 @@ public:
         uint8_t  surface_quality;   // image quality (below TBD you can't trust the dx,dy values returned)
         Vector2f flowRate;          // optical flow angular rate in rad/sec measured about the X and Y body axis. A RH rotation about a sensor axis produces a positive rate.
         Vector2f bodyRate;          // body inertial angular rate in rad/sec measured about the X and Y body axis. A RH rotation about a sensor axis produces a positive rate.
+        // newly added for pattern rec functionality
+        uint8_t rec_qual;
+        float pat_x_dist;
+        float pat_y_dist;
     };
 
     // support for HIL/SITL

@@ -230,6 +230,9 @@ struct PACKED log_Optflow {
     float flow_y;
     float body_x;
     float body_y;
+    uint8_t rec_qual;
+    float pat_x_dist;
+    float pat_y_dist;
 };
 
 // Write an optical flow packet
@@ -249,7 +252,10 @@ void Copter::Log_Write_Optflow()
         flow_x          : flowRate.x,
         flow_y          : flowRate.y,
         body_x          : bodyRate.x,
-        body_y          : bodyRate.y
+        body_y          : bodyRate.y,
+        rec_qual        : optflow.rec_quality(),
+        pat_x_dist      : optflow.pat_x_dist(),
+        pat_y_dist      : optflow.pat_y_dist(),
     };
     DataFlash.WriteBlock(&pkt, sizeof(pkt));
  #endif     // OPTFLOW == ENABLED
@@ -723,7 +729,7 @@ const struct LogStructure Copter::log_structure[] = {
     { LOG_PARAMTUNE_MSG, sizeof(log_ParameterTuning),
       "PTUN", "QBfHHH",          "TimeUS,Param,TunVal,CtrlIn,TunLo,TunHi" },  
     { LOG_OPTFLOW_MSG, sizeof(log_Optflow),       
-      "OF",   "QBffff",   "TimeUS,Qual,flowX,flowY,bodyX,bodyY" },
+      "OF",   "QBffffBff",   "TimeUS,Qual,flowX,flowY,bodyX,bodyY,recQual,xDist,yDist" },
     { LOG_NAV_TUNING_MSG, sizeof(log_Nav_Tuning),       
       "NTUN", "Qffffffffff", "TimeUS,DPosX,DPosY,PosX,PosY,DVelX,DVelY,VelX,VelY,DAccX,DAccY" },
     { LOG_CONTROL_TUNING_MSG, sizeof(log_Control_Tuning),
