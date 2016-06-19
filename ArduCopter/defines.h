@@ -212,6 +212,7 @@ enum RTLState {
     RTL_InitialClimb,
     RTL_ReturnHome,
     RTL_LoiterAtHome,
+    RTL_SearchPattern, //Added state for RTL with pattern recognition
     RTL_FinalDescent,
     RTL_Land
 };

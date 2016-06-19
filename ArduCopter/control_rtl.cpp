@@ -47,6 +47,17 @@ void Copter::rtl_run()
             rtl_loiterathome_start();
             break;
         case RTL_LoiterAtHome:
+#if PATREC_LANDING_ENABLED == ENABLED
+            rtl_searchpattern_start();
+#else
+            if (rtl_path.land || failsafe.radio) {
+                rtl_land_start();
+            }else{
+                rtl_descent_start();
+            }
+            break;
+#endif
+        case RTL_SearchPattern:
             if (rtl_path.land || failsafe.radio) {
                 rtl_land_start();
             }else{
@@ -77,6 +88,9 @@ void Copter::rtl_run()
         rtl_loiterathome_run();
         break;
 
+    case RTL_SearchPattern:
+        rtl_searchpattern_run();
+        break;
     case RTL_FinalDescent:
         rtl_descent_run();
         break;
@@ -108,6 +122,7 @@ void Copter::rtl_climb_start()
         set_mode(LAND, MODE_REASON_TERRAIN_FAILSAFE);
         return;
     }
+
     wp_nav.set_fast_waypoint(true);
 
     // hold current yaw during initial climb
@@ -258,6 +273,16 @@ void Copter::rtl_loiterathome_run()
     }
 }
 
+// rtl_searchpattern_start - initialise the search for the pattern at home position
+void Copter::rtl_searchpattern_start(){
+
+    rtl_state = RTL_SearchPattern;
+    rtl_state_complete = false;
+}
+
+void Copter::rtl_searchpattern_run(){
+    rtl_state_complete = true;
+}
 // rtl_descent_start - initialise descent to final alt
 void Copter::rtl_descent_start()
 {

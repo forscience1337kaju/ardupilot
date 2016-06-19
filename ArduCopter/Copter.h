@@ -109,8 +109,8 @@
 #include <AP_IRLock/AP_IRLock.h>
 #endif
 #if PATREC_LANDING == ENABLED
-//#include hier muss noch meine PATREC_LANDING Library included werden
-
+//#include <AP_PATTERN_REC
+#endif
 // Local modules
 #include "Parameters.h"
 
@@ -837,6 +837,8 @@ private:
     void rtl_climb_return_run();
     void rtl_loiterathome_start();
     void rtl_loiterathome_run();
+    void rtl_searchpattern_start();
+    void rtl_searchpattern_run();
     void rtl_descent_start();
     void rtl_descent_run();
     void rtl_land_start();

@@ -45,6 +45,8 @@ public:
     // read latest values from sensor and fill in x,y and totals.
     void update(void);
 
+    void write(void);
+
     // quality - returns the surface quality as a measure from 0 ~ 255
     uint8_t quality() const { return _state.surface_quality; }
 

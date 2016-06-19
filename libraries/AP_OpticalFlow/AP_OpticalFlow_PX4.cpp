@@ -94,4 +94,11 @@ void AP_OpticalFlow_PX4::update(void)
     }
 }
 
+void AP_OpticalFlow_PX4::write(void)
+{
+    struct optical_flow_s report;
+    report.quality =0;
+    while (::write(_fd, &report, sizeof(optical_flow_s)) == sizeof(optical_flow_s) &&
+           report.timestamp != _last_timestamp);
+}
 #endif // CONFIG_HAL_BOARD == HAL_BOARD_PX4

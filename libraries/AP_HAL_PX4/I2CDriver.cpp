@@ -63,6 +63,7 @@ uint8_t PX4I2CDriver::write(uint8_t addr, uint8_t len, uint8_t* data)
 }
 
 /* writeRegister: write a single 8-bit value to a register */
+//HIER SCHREIBE ICH ZUM REGISTER DES PX4FLOWS?!
 uint8_t PX4I2CDriver::writeRegister(uint8_t addr, uint8_t reg, uint8_t val)
 {
     uint8_t d[2] = { reg, val };

@@ -86,6 +86,13 @@ void OpticalFlow::update(void)
     _flags.healthy = (AP_HAL::millis() - _last_update_ms < 500);
 }
 
+void OpticalFlow::write(void)
+{
+    if(backend != NULL)
+        backend->write();
+    }
+}
+
 void OpticalFlow::setHIL(const struct OpticalFlow::OpticalFlow_state &state)
 {
     if (backend) {

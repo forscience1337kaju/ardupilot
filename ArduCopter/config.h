@@ -669,6 +669,6 @@
 
 //////////////////////////////////////////////////////////////////////////////
 // Landing with pattern recognition
-#ifndef PATREC_LANDING
- # define PATREC_LANDING ENABLED
+#ifndef PATREC_LANDING_ENABLED
+ # define PATREC_LANDING_ENABLED ENABLED
 #endif

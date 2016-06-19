@@ -15,6 +15,9 @@ public:
     // update - read latest values from sensor and fill in x,y and totals.
     void update(void);
 
+    // write - write latest values from pixhawk to i2c
+    void write(void);
+
 private:
     int         _fd;                // file descriptor for sensor
     uint64_t    _last_timestamp;    // time of last update (used to avoid processing old reports)

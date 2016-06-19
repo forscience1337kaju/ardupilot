@@ -36,6 +36,7 @@
 //#define FRSKY_TELEM_ENABLED   DISABLED            // disable FRSky telemetry
 //#define ADSB_ENABLED          DISABLED            // disable ADSB support
 //#define PRECISION_LANDING     DISABLED            // disable precision landing using companion computer or IRLock sensor
+#define PATREC_LANDING          DISABLED            //disable patrec landing cause it isnt fully implemented yet
 
 // features below are disabled by default on all boards
 //#define SPRAYER               ENABLED             // enable the crop sprayer feature (two ESC controlled pumps the speed of which depends upon the vehicle's horizontal velocity)

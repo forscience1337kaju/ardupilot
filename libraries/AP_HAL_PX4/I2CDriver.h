@@ -20,6 +20,7 @@ public:
     uint8_t write(uint8_t addr, uint8_t len, uint8_t* data) override;
 
     /* writeRegister: write a single 8-bit value to a register */
+    // schreiben zum PX4Flow
     uint8_t writeRegister(uint8_t addr, uint8_t reg, uint8_t val) override;
 
     /* writeRegisters: write bytes to contiguous registers */
